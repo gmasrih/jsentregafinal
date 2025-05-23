@@ -151,7 +151,7 @@ document.getElementById("orderForm").addEventListener("submit", e => {
         window.location.href = "confirmacion.html"
         })
       } else {
-        throw new Error("Tajeta inválida, intenta de nuevo")
+        throw new Error("Tarjeta inválida, intenta de nuevo")
         }
     } catch (err) {
         Swal.fire({
