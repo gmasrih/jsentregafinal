@@ -1,0 +1,32 @@
+[
+    {
+        "productId": 1,
+        "name": "iPhone 16 - 256GB",
+        "description":"Telefono inteligente de gran capacidad",
+        "price": 1499
+    },
+    {
+        "productId": 2,
+        "name": "iPad Air - 512GB",
+        "description":"Tableta inteligente con nitidez única",
+        "price": 1199
+    },
+    {
+        "productId": 3,
+        "name": "AirPods Pro 4",
+        "description":"Audifonos con supresión de ruido",
+        "price": 399
+    },
+    {
+        "productId": 4,
+        "name": "Apple Pen Pro",
+        "description":"Excelente para diseños profesionales",
+        "price": 249
+    },
+    {
+        "productId": 5,
+        "name": "Teclado Apple BT",
+        "description":"Teclado inalabrico compatible con MacBook",
+        "price": 599
+    }
+]

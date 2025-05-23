@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrega Final - Javascript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script defer src="../js/pedido.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-primary">
+        <div class="container-fluid">
+            <h1 class="navbar-brand text-white mb-0">Entrega Final - Simulador Pedido</h1>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="mb-3">
+                <a href="../index.html" class="text-primary text-decoration-none small"><i class="bi bi-arrow-left me-2"></i>Volver</a>
+            </div>
+            <!-- Información del Pedido -->
+            <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-header bg-warning text-white text-center">
+                        <h5 class="mb-0"><i class="bi bi-list-check me-2"></i>Información del Pedido</h5>
+                    </div>
+                    <div class="card-body" id="orderInfoContainer">
+                     <!-- Aquí se inyectará el resumen del carrito -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario de Envío y Pago -->
+            <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-header bg-warning text-white text-center">
+                        <h5 class="mb-0"><i class="bi bi-truck me-2"></i>Datos de Envío y Pago</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="orderForm">
+                        <!-- Envío -->
+                            <h6 class="fw-bold">Dirección de envío</h6>
+                            <div class="mb-3">
+                                <label for="ship-calle" class="form-label">Calle</label>
+                                <input type="text" id="ship-calle" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ship-numext" class="form-label">No. exterior</label>
+                                <input type="text" id="ship-numext" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ship-numint" class="form-label">No. interior</label>
+                                <input type="text" id="ship-numint" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="ship-colonia" class="form-label">Colonia</label>
+                                <input type="text" id="ship-colonia" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ship-cp" class="form-label">CP</label>
+                                <input
+                                type="numeric"
+                                id="ship-cp"
+                                class="form-control"
+                                pattern="\d{5}"
+                                required
+                                >
+                            </div>
+                            <div class="mb-3">
+                                <label for="ship-pais" class="form-label">País</label>
+                                <select id="ship-pais" class="form-select" required>
+                                <option value="" disabled selected>Selecciona</option>
+                                <option value="México">México</option>
+                                <option value="Argentina">Argentina</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ship-email" class="form-label">Email</label>
+                                <input type="email" id="ship-email" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ship-tel" class="form-label">Teléfono</label>
+                                <input
+                                type="tel"
+                                id="ship-tel"
+                                class="form-control"
+                                pattern="\d{10}"
+                                required
+                                >
+                                <div class="form-text">10 dígitos</div>
+                            </div>
+                            
+                            <hr/>
+
+                            <!-- Pago -->
+                            <h6 class="fw-bold">Datos de Pago</h6>
+                            <div class="mb-3">
+                                <label for="pay-nombre" class="form-label">Nombre del tarjetahabiente</label>
+                                <input type="text" id="pay-nombre" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pay-numtarjeta" class="form-label">Número de tarjeta</label>
+                                <div class="form-text">Usar número 1234 1234 1234 1234 (sin espacios) / otro dará error</div>
+                                <input
+                                type="numeric"
+                                id="pay-numtarjeta"
+                                class="form-control no-spinners"
+                                pattern="\d{15,16}"
+                                required
+                                >
+                            </div>
+                            <div class="mb-3">
+                                <label for="pay-cvv" class="form-label">CVV</label>
+                                <div class="form-text">Usar número 1234 / otro dará error</div>
+                                <input
+                                type="numeric"
+                                id="pay-cvv"
+                                class="form-control"
+                                pattern="\d{3,4}"
+                                required
+                                >
+                            </div>
+                            <div class="mb-3">
+                                <label for="pay-cp" class="form-label">CP</label>
+                                <div class="form-text">Usar número 50500 / otro dará error</div>
+                                <input
+                                type="numeric"
+                                id="pay-cp"
+                                class="form-control"
+                                pattern="\d{5}"
+                                required
+                                >
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 mt-3">
+                                Confirmar Pedido
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
